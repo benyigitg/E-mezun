@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main  # veya default olarak kullandığın branch
+
+media_folder: "static/uploads"  # Medya yüklemeleri için klasör
+public_folder: "/uploads"
+
+collections:
+  - name: "ders_notlari"
+    label: "Ders Notları"
+    folder: "content/ders_notlari"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "PDF Linki", name: "pdf_link", widget: "string"}
+      - {label: "Açıklama", name: "description", widget: "text"}
+
+  - name: "blog"
+    label: "Blog Yazıları"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime"}
+      - {label: "İçerik", name: "body", widget: "markdown"}
